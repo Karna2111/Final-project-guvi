@@ -27,7 +27,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 sh 'chmod +x build.sh'
-                sh './build.sh'
+                sh './build/build.sh
             }
         }
 
@@ -42,9 +42,9 @@ pipeline {
                 script {
                     sh 'chmod +x deploy.sh'
                     if (env.BRANCH_NAME == 'dev') {
-                        sh './deploy.sh dev'
+                        sh './build/deploy.sh dev'
                     } else if (env.BRANCH_NAME == 'master') {
-                        sh './deploy.sh prod'
+                        sh './build/deploy.sh prod'
                     }
                 }
             }
