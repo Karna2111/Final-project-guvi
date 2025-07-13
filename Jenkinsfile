@@ -35,7 +35,7 @@ pipeline {
             when {
                 anyOf {
                     branch 'dev'
-                    branch 'master'
+                    branch 'main'
                 }
             }
             steps {
@@ -43,7 +43,7 @@ pipeline {
                      sh 'chmod +x build/deploy.sh'
                     if (env.BRANCH_NAME == 'dev') {
                         sh './build/deploy.sh dev'
-                    } else if (env.BRANCH_NAME == 'master') {
+                    } else if (env.BRANCH_NAME == 'main') {
                         sh './build/deploy.sh prod'
                     }
                 }
