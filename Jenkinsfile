@@ -40,7 +40,9 @@ pipeline {
             }
             steps {
                 script {
-                     sh 'chmod +x build/deploy.sh'
+                    withCredentials([usernamePassword(credentialsId: 'Docker-Jenkins', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
+                        sh 'echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin'
+                        sh 'chmod +x build/deploy.sh'
                     if (env.BRANCH_NAME == 'dev') {
                         sh './build/deploy.sh dev'
                     } else if (env.BRANCH_NAME == 'main') {
