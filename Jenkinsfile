@@ -56,7 +56,7 @@ pipeline {
         stage('Deploy to EC2') {
             steps {
                 sshagent(credentials: ['ec2-ssh-key']) {
-                    sh 'ssh -o StrictHostKeyChecking=no ec2-user@<54.234.29.140> "docker pull $DOCKER_HUB_USER/$IMAGE_NAME && docker stop web || true && docker rm web || true && docker run -d -p 80:80 --name web $DOCKER_HUB_USER/$IMAGE_NAME"'
+                    sh 'ssh -o StrictHostKeyChecking=no ec2-user@<44.202.244.130> "docker pull $DOCKER_HUB_USER/$IMAGE_NAME && docker stop web || true && docker rm web || true && docker run -d -p 80:80 --name web $DOCKER_HUB_USER/$IMAGE_NAME"'
                 }
             }
         }

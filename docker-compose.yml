@@ -7,5 +7,5 @@ services:
       dockerfile: Dockerfile
     container_name: react-static-app
     ports:
-     - "80:3000"
+     - "80:80"
       
