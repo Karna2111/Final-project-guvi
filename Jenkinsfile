@@ -59,7 +59,7 @@ pipeline {
         }
             steps {
                 sshagent(credentials: ['ec2-user-jenkins']) {
-                    sh 'ssh -o StrictHostKeyChecking=no ec2-user@<44.202.244.130> "docker pull $DOCKER_HUB_USER/$IMAGE_NAME && docker stop web || true && docker rm web || true && docker run -d -p 80:80 --name web $DOCKER_HUB_USER/$IMAGE_NAME"'
+                    sh 'ssh -o StrictHostKeyChecking=no ec2-user@44.202.244.130 "docker pull $DOCKER_HUB_USER/$IMAGE_NAME && docker stop web || true && docker rm web || true && docker run -d -p 80:80 --name web $DOCKER_HUB_USER/$IMAGE_NAME"'
                 }
             }
         }     
