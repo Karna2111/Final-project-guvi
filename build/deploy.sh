@@ -19,8 +19,6 @@ if [ "$ENV" = "dev" ]; then
 elif [ "$ENV" = "prod" ]; then
   docker tag react-static-app karna2111/prod:latest
   docker push karna2111/prod:latest
-  docker tag react-static-app karna2111/react-static-app:latest      # <-- Add this line
-  docker push karna2111/react-static-app:latest                      # <-- Add this line
 fi
 
 
