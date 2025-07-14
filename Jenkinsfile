@@ -62,14 +62,5 @@ pipeline {
                     sh 'ssh -o StrictHostKeyChecking=no ec2-user@<44.202.244.130> "docker pull $DOCKER_HUB_USER/$IMAGE_NAME && docker stop web || true && docker rm web || true && docker run -d -p 80:80 --name web $DOCKER_HUB_USER/$IMAGE_NAME"'
                 }
             }
-        }
-    
-
-    //post {
-       // failure {
-           // mail to: 'karnamaharajan.d@gmail.com',
-                // subject: "Jenkins Build Failed: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
-                 //body: "Check Jenkins at ${env.BUILD_URL}"
-        //}
-    //}
- }
+        }     
+    }
